@@ -11,7 +11,7 @@ export function AboutSection() {
               I&apos;m Nimmy, a web designer based in Shefford. I started this because I kept seeing local businesses with outdated websites, or no website at all, losing customers to competitors who just looked more credible online.
             </p>
             <p>
-              I build sites that are quick to load, easy to find on Google, and actually reflect the quality of what you do. No templates slapped together in an afternoon. Every site I build gets proper attention.
+              I build sites that are quick to load, easy to find on Google, and actually reflect the quality of what you do. No templates slapped together in an afternoon. Every site I build gets proper attention. With me you get a high-converting website, which wins you customers.
             </p>
           </div>
         </div>
