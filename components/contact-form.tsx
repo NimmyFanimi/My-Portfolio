@@ -18,7 +18,8 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="contact">
+      <input type="hidden" name="form-name" value="contact" />
       <div className="space-y-2">
         <label 
           htmlFor="name" 
