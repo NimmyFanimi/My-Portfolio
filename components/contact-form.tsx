@@ -3,30 +3,37 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     const form = e.currentTarget
     const data = new FormData(form)
-    await fetch('/', {
+    await fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data as any).toString(),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.get('name'),
+        business: data.get('business'),
+        message: data.get('message'),
+      }),
     })
     setIsSubmitting(false)
     setSubmitted(true)
   }
+
   if (submitted) {
     return (
       <p className="text-foreground text-lg">Thanks! I'll get back to you within one working day.</p>
     )
   }
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact" />
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
         <Input id="name" name="name" type="text" required placeholder="Your name" className="bg-secondary border-border focus:border-primary focus:ring-primary" />
