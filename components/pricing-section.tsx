@@ -1,30 +1,19 @@
+import { client } from '@/lib/sanity'
 import { cn } from '@/lib/utils'
 
-const plans = [
-  {
-    name: 'Starter',
-    price: '£299',
-    description:
-      'A clean, professional one-page site. Good for businesses that just need a solid online presence.',
-    popular: false,
-  },
-  {
-    name: 'Standard',
-    price: '£549',
-    description:
-      'A full multi-page site with a contact form and everything set up properly. This is what most clients go for.',
-    popular: true,
-  },
-  {
-    name: 'Premium',
-    price: '£899',
-    description:
-      'Everything in Standard, plus a photo gallery, booking integration, or anything else your business specifically needs.',
-    popular: false,
-  },
-]
+async function getPricing() {
+  const plans = await client.fetch(`*[_type == "pricing"] | order(_createdAt asc){
+    tier,
+    price,
+    description,
+    highlighted
+  }`)
+  return plans
+}
 
-export function PricingSection() {
+export async function PricingSection() {
+  const plans = await getPricing()
+
   return (
     <section className="border-t border-border/40">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
@@ -32,25 +21,25 @@ export function PricingSection() {
           Pricing:
         </h2>
         <div className="mt-16 grid gap-6 md:grid-cols-3 md:gap-8">
-          {plans.map((plan) => (
+          {plans.map((plan: any) => (
             <div
-              key={plan.name}
+              key={plan.tier}
               className={cn(
                 'relative rounded-lg border border-border/60 bg-card p-8 transition-all',
-                plan.popular && 'border-primary ring-1 ring-primary'
+                plan.highlighted && 'border-primary ring-1 ring-primary'
               )}
             >
-              {plan.popular && (
+              {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="rounded-full bg-primary px-4 py-1 text-xs font-medium text-primary-foreground">
                     Most popular
                   </span>
                 </div>
               )}
-              <h3 className="text-xl font-bold text-primary">{plan.name}</h3>
+              <h3 className="text-xl font-bold text-primary">{plan.tier}</h3>
               <div className="mt-4">
                 <span className="text-4xl font-bold text-foreground">
-                  {plan.price}
+                  £{plan.price}
                 </span>
               </div>
               <p className="mt-6 text-muted-foreground leading-relaxed">
