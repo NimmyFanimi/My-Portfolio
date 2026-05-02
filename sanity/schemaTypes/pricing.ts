@@ -31,5 +31,10 @@ export const pricingSchema = defineType({
       title: 'Highlighted (Most Popular)',
       type: 'boolean',
     }),
+    defineField({
+      name: 'footnote',
+      title: 'Footnote (shown below all plans)',
+      type: 'string',
+    }),
   ],
 })

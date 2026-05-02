@@ -6,13 +6,15 @@ async function getPricing() {
     tier,
     price,
     description,
-    highlighted
+    highlighted,
+    footnote
   }`)
   return plans
 }
 
 export async function PricingSection() {
   const plans = await getPricing()
+  const footnote = plans.find((p: any) => p.footnote)?.footnote
 
   return (
     <section className="border-t border-border/40">
@@ -48,9 +50,11 @@ export async function PricingSection() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-sm text-muted-foreground">
-          All prices include deployment and setup. Hosting from £15/month.
-        </p>
+        {footnote && (
+          <p className="mt-10 text-center text-sm text-muted-foreground">
+            {footnote}
+          </p>
+        )}
       </div>
     </section>
   )
