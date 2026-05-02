@@ -4,5 +4,8 @@ export const client = createClient({
   projectId: '7rbxfwnm',
   dataset: 'production',
   apiVersion: '2026-05-01',
-  useCdn: true,
+  useCdn: false,
+  fetch: {
+    cache: 'no-store',
+  },
 })
