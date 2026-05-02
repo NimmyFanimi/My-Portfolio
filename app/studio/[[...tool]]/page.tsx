@@ -5,5 +5,9 @@ export const dynamic = 'force-dynamic'
 export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999 }}>
+      <NextStudio config={config} />
+    </div>
+  )
 }
