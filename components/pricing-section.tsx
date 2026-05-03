@@ -41,7 +41,7 @@ export async function PricingSection() {
               <h3 className="text-xl font-bold text-primary">{plan.tier}</h3>
               <div className="mt-4">
                 <span className="text-4xl font-bold text-foreground">
-                  £{plan.price}
+                  £{plan.price}+
                 </span>
               </div>
               <p className="mt-6 text-muted-foreground leading-relaxed">
