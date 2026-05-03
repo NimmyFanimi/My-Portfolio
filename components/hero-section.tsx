@@ -10,7 +10,7 @@ export function HeroSection() {
             Your local business deserves a website that actually works for you.
           </h1>
           <p className="mt-6 text-lg text-muted-foreground md:text-xl text-pretty">
-            I build fast, professional websites for small businesses across Hertfordshire and Bedfordshire. Fixed price, no jargon, no ongoing surprises.
+            I build fast, professional websites for small businesses across the country. Fixed price, no jargon, no ongoing surprises.
           </p>
           <div className="mt-10">
             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
