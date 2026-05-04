@@ -3,7 +3,7 @@ const steps = [
     number: '01',
     title: 'We talk.',
     description:
-      'You tell me about your business and what you need. No forms, no faff. Just a straightforward conversation.',
+      'We talk. You fill in a quick form, then we jump on a call to go over the details. No lengthy back-and-forth, no wasted time.',
   },
   {
     number: '02',
