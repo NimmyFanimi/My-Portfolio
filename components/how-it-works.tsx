@@ -9,7 +9,7 @@ const steps = [
     number: '02',
     title: 'I build it.',
     description:
-      'I handle everything. Design, copy, images, and deployment. You get a site that looks the part and loads fast.',
+      'I can handle everything. Design, copy, images, and deployment. You get a site that looks the part and loads fast.',
   },
   {
     number: '03',
